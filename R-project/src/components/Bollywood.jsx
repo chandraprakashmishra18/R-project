@@ -1,21 +1,25 @@
+//Bollywwod.jsx
 import React from 'react'
-import Data from "../Data.js"; 
+import Data from '../Data'
+import { Link } from 'react-router-dom';
 
 const Bollywood = () => {
-  const BollywoodData = Data.filter(
-    (item) => item.category === "Bollywood"
-  );
+
+  const BollywoodData = Data.filter((item) => item.category === "Bollywood");
+  console.log(BollywoodData)
 
   return (
     <div>
-      {BollywoodData.map((bollydata, index) => (
-        <div key={index}>   {/* ✅ key added */}
-          <h1>{bollydata.title}</h1>
-          <img src={bollydata.img_url} alt={bollydata.title} />
+      {BollywoodData.map((bollydata) => (
+        <div key={bollydata.id}>
+          <Link to={`/details/${bollydata.id}`}>
+            <h1>{bollydata.title}</h1>
+            <img src={bollydata.img_url} alt="" />
+          </Link>
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default Bollywood;
+export default Bollywood
