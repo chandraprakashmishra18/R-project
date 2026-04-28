@@ -8,8 +8,9 @@ import Fitness from "./components/Fitness";
 import Navbar from "./components/Navbar";
 import Technology from "./components/Technology";
 import Hero from './components/Hero';
-import "./App.css";   
 import Details from './components/Details';
+
+import "./App.css";
 
 const App = () => {
   return (
