@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Food from "./components/Food";
@@ -9,12 +9,15 @@ import Navbar from "./components/Navbar";
 import Technology from "./components/Technology";
 import Hero from './components/Hero';
 import Details from './components/Details';
+import { ThemeContext } from './context/ThemeContext';
 
 import "./App.css";
 
 const App = () => {
+  const { theme } = useContext(ThemeContext)
   return (
     <>
+    <div className={theme}>
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -27,6 +30,7 @@ const App = () => {
           <Route path="/details/:id" element={<Details/>}/>
         </Routes>
       </BrowserRouter>
+      </div>
     </>
   )
 }
